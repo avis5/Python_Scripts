@@ -1,0 +1,128 @@
+import random
+
+user_in = int(input("How many tickets would you like to make? "))
+method = str(input("Would you like the Even-Odd method (E) or the Halfsies method (H)? "))
+perma_ban = []
+repetitions = 0
+while repetitions < user_in:
+  if method.lower() == "h":
+    restricted_values = []
+    the_ball = []
+    n1 = int(random.randint(1, 35))
+    if n1 > 6:
+      n1 = n1 + int(random.randrange(-5,5))
+    restricted_values.append(n1)
+    n2 = int(random.randint(1, 35))
+    if n2 > 6:
+      n2 = n2 + int(random.randrange(-5,5))
+    if n2 in restricted_values:
+      n2 = int(random.randint(1, 35))
+      if n2 > 6:
+        n2 = n2 + int(random.randrange(-5,5))
+    restricted_values.append(n2)
+    n3 = int(random.randint(1, 35))
+    if n3 > 6:
+      n3 = n3 + int(random.randrange(-5,5))
+    if n3 in restricted_values:
+      n3 = int(random.randint(1, 35))
+      if n3 > 6:
+        n3 = n3 + int(random.randrange(-5,5))
+    restricted_values.append(n3)
+    n4 = int(random.randint(36, 70)) 
+    if n4 > 6:
+      n4 = n4 + int(random.randrange(-5,5))
+    if n4 in restricted_values:
+      n4 = int(random.randint(36, 70))
+      if n4 > 6:
+        n4 = n4 + int(random.randrange(-5,5))
+    restricted_values.append(n4)
+    n5 = int(random.randint(36, 70))
+    if n5 > 6:
+      n5 = n5 + int(random.randrange(-5,5))
+    if n5 in restricted_values:
+      n5 = int(random.randint(36, 70))
+      if n5 > 6:
+        n5 = n5 + int(random.randrange(-5,5))
+    restricted_values.append(n5)
+    n6 = int(random.randint(36, 70))
+    if n6 > 6:
+      n6 = n6 + int(random.randrange(-5,5))
+    if n6 in restricted_values:
+      n6 = int(random.randint(36, 70))
+      if n6 > 6:
+        n6 = n6 + int(random.randrange(-5,5))
+    restricted_values.append(n6)
+    n7 = int(random.randint(1, 63))
+    while n7 in perma_ban:
+      n7 = int(random.randint(1, 63))
+    the_ball.append(n7)
+    for balls in the_ball:
+      if the_ball.count(balls) == 1:
+        perma_ban.append(balls)
+    numbers = [n1, n2, n3, n4, n5, n6, n7]
+    place = 1 + repetitions
+    for gamble in restricted_values:
+      restricted_values.remove(gamble)
+    print("Ticket #"+str(place) + ": " + str(numbers))
+    repetitions = repetitions + 1
+
+  if method.lower() == "e":
+    restricted_values = []
+    the_ball = []
+    n1 = int(random.randrange(2,70,2))
+    if n1 > 6:
+      n1 = n1 + int(random.randrange(-4,4,2))
+    restricted_values.append(n1)
+    n2 = int(random.randrange(2,70,2))
+    if n2 > 6:
+      n2 = n2 + int(random.randrange(-4,4,2))
+    if n2 in restricted_values:
+      n2 = int(random.randrange(2,70,2))
+      if n2 > 6:
+        n2 = n2 + int(random.randrange(-4,4,2))
+    restricted_values.append(n2)
+    n3 = int(random.randrange(2,70,2))
+    if n3 > 6:
+      n3 = n3 + int(random.randrange(-4,4))
+    if n3 in restricted_values:
+      n3 = int(random.randrange(2,70,2))
+      if n3 > 6:
+        n3 = n3 + int(random.randrange(-4,4))
+    restricted_values.append(n3)
+    n4 = int(random.randrange(1,69,2)) 
+    if n4 > 6:
+      n4 = n4 + int(random.randrange(-5,5,2))
+    if n4 in restricted_values:
+      n4 = int(random.randrange(1,69,2))
+      if n4 > 6:
+        n4 = n4 + int(random.randrange(-5,5,2))
+    restricted_values.append(n4)
+    n5 = int(random.randrange(1,69,2))
+    if n5 > 6:
+      n5 = n5 + int(random.randrange(-5,5,2))
+    if n5 in restricted_values:
+      n5 = int(random.randrange(1,69,2))
+      if n5 > 6:
+        n5 = n5 + int(random.randrange(-5,5,2))
+    restricted_values.append(n5)
+    n6 = int(random.randrange(1,69,2))
+    if n6 > 6:
+      n6 = n6 + int(random.randrange(-5,5,2))
+    if n6 in restricted_values:
+      n6 = int(random.randrange(1,69,2))
+      if n6 > 6:
+        n6 = n6 + int(random.randrange(-5,5))
+    restricted_values.append(n6)
+    n7 = int(random.randint(1, 63))
+    while n7 in perma_ban:
+      n7 = int(random.randint(1, 63))
+    the_ball.append(n7)
+    for balls in the_ball:
+      if the_ball.count(balls) == 1:
+        perma_ban.append(balls)
+    numbers = [n1, n2, n3, n4, n5, n6, n7]
+    place = 1 + repetitions
+    for gamble in restricted_values:
+      restricted_values.remove(gamble)
+    print("Ticket #"+str(place) + ": " + str(numbers))
+    repetitions = repetitions + 1
