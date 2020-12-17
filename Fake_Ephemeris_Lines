@@ -1,0 +1,38 @@
+from random import randint
+import os
+
+
+def Ephemeris_Calculation():
+    MJD = input("What is the MJD bary of your run? ")
+    Period = float(input("What is the period, in milliseconds, of your run? "))
+    Date = input("What was the date of your observation (Format: DD MON YY) ")
+    Period_Deriv = float(input("What was the Period Derivative of observation? "))
+    DM = input("What is the DM of the run? ")
+    Frequency = float(1 / (0.001 * Period))
+    Adjusted_Freq = format(Frequency, ".10f")
+    Frequency_Derivative = float(-1000000000000000 * Period_Deriv / ((Period)**2))
+    #Adjusted_Freq_Deriv = format(Frequency_Derivative, ".9g")
+    MJD_Decimals = MJD[5:]
+    MJD_Whole = MJD[:5]
+    if Period_Deriv == float(0.0):
+      Adjusted_Freq_Deriv = format(Frequency_Derivative, ".8f")
+      if "-" in Adjusted_Freq_Deriv:
+        Adjusted_Freq_Deriv = Adjusted_Freq_Deriv.replace('-', '')
+    else:
+      Adjusted_Freq_Deriv = format(Frequency_Derivative, ".9g")
+    print("1 " + str(MJD))
+    print(
+        str(Date) + " " + str(MJD_Whole) + " " + str(MJD_Decimals) + " " +
+        str(randint(1, 100)) + " " + str(Adjusted_Freq) + " " +
+        str(randint(1, 100)) + " " + str(Adjusted_Freq_Deriv) + " " +
+        str(randint(1, 100)) + " " + str(DM) + " " + str(randint(1, 100)) +
+        " " + str(randint(1, 100)) + " ")
+
+
+while True:
+    Ephemeris_Calculation()
+    command = input("Input 'N' to end, any other character to continue! ")
+    if command.lower() == "n":
+        break
+    else:
+        os.system('clear')
