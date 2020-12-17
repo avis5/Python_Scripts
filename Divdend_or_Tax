@@ -1,0 +1,21 @@
+Choice = input("What would you like to calculate? D for Dividends and T for Tax. ")
+
+if Choice.lower() == 'd':
+  Dividend_Yield = input("What is the dividend yield for the stocks? ")
+  Stock_Price = input("What is the price of the stock? ")
+  Shares = input("How many shares do you have? ")
+  Dividend_Payout = (float(Dividend_Yield)/100) * float(Shares) * float(Stock_Price)
+  Div_Pay = format(Dividend_Payout, '.2f')
+  print("You will be paid $" + str(Div_Pay) + " in dividends.")
+
+elif Choice.lower() == 't':
+  Return_List = []
+  while True:
+    Returns = float(input("How much returns have you made? Input 0 to stop. "))
+    if Returns == 0:
+      break 
+    Return_List.append(Returns)
+  Profit = sum(Return_List)
+  Federal_Tax = Profit * 0.10
+  Tax = Federal_Tax + (Profit * 0.037)
+  print("You will have to pay " + str(Tax) + " on your investments.")
